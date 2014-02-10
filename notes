@@ -1,0 +1,19 @@
+2x dyno. 1st load test. Load avg peaked at 8. Performance still good even with high load. 14 workers is definitely not sustainable in production. able to handle load.
+
+2x dyno. 2nd load test. 350 concurrent users. 18 unicorn workers. Definitely CPU constrained this time. Load avg hit 10. Stopped responding to requests.
+
+PS dyno. 1st load test. 350 concurrent users. 18 unicorn workers. Used 700mb ram. No longer cpu constrained. Load maxed at 1.3.
+
+2014-02-10T02:01:29.989936+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#load_avg_1m=0.21
+2014-02-10T02:01:29.990275+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#memory_total=703.51MB
+
+
+PS dyno. 2nd load test. 450 concurrent users. 18 unicorn workers.
+
+2014-02-10T02:06:24.153198+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#load_avg_1m=1.21 sample#load_avg_5m=0.63
+2014-02-10T02:06:24.153421+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#memory_total=721.42MB sample#memory_rss=721.41MB sample#memory_cache=0.00MB sample#memory_swap=0.01MB sample#memory_pgpgin=0pages sample#memory_pgpgout=193310pages
+
+final load test. 1000 concurrent users. 18 unicorn workers. 3.1 load average.
+
+0T02:19:21.027350+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#load_avg_1m=1.15 sample#load_avg_5m=3.17 sample#load_avg_15m=1.91
+2014-02-10T02:19:21.027564+00:00 heroku[web.1]: source=web.1 dyno=heroku.21895047.994a0268-21b1-4f7a-800f-5355cdbac66b sample#memory_total=760.21MB sample#memory_rss=760.19MB sample#memory_cache=0.00MB sample#memory_swap=0.02MB sample#memory_pgpgin=0pages sample#memory_pgpgout=212582pages
